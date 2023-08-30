@@ -4,7 +4,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: example1-bravo
-  namespace: alpha
+  namespace: bravo
   labels:
     app: example1-bravo
 spec:
