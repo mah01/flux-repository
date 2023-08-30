@@ -1,0 +1,34 @@
+# Example 1
+# Yaml file directly in clusters/dev/namespaces/alpha
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example5
+  namespace: alpha
+  labels:
+    app: example5
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example5
+  template:
+    metadata:
+      labels:
+        app: example5
+    spec:
+      containers:
+        - name: example5
+          image: nginx:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: example5
+  namespace: alpha
+spec:
+  selector:
+    app: example5
+  ports:
+    - port: 80
+      targetPort: 80
