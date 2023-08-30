@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: example4
-  namespace: alpha
+  namespace: charlie
 spec:
   interval: 0m10s
   chart:

@@ -1,10 +1,10 @@
 # Example 1
-# Yaml file directly in clusters/dev/namespaces/alpha
+# Yaml file directly in clusters/dev/namespaces/charlie
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: example7
-  namespace: alpha
+  namespace: charlie
   labels:
     app: example7
 spec:
@@ -25,7 +25,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: example7
-  namespace: alpha
+  namespace: charlie
 spec:
   selector:
     app: example7
