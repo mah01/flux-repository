@@ -1,32 +1,34 @@
+# Example 1
+# Yaml file directly in clusters/dev/namespaces/alpha
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myExample
-  namespace: oscar
+  name: example1
+  namespace: foxtrot
   labels:
-    app: myExample
+    app: example1
 spec:
-  replicas: 10
+  replicas: 1
   selector:
     matchLabels:
-      app: myExample
+      app: example1
   template:
     metadata:
       labels:
-        app: myExample
+        app: example1
     spec:
       containers:
-        - name: myExample
+        - name: example1
           image: nginx:latest
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: myExample
-  namespace: oscar
+  name: example1
+  namespace: foxtrot
 spec:
   selector:
-    app: myExample
+    app: example1
   ports:
     - port: 80
       targetPort: 80
