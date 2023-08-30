@@ -1,0 +1,34 @@
+# THV Example 1
+# This is a great example application
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: thv-example1
+  namespace: lima
+  labels:
+    app: thv-example1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: thv-example1
+  template:
+    metadata:
+      labels:
+        app: thv-example1
+    spec:
+      containers:
+        - name: thv-example1
+          image: nginx:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: thv-example1
+  namespace: lima
+spec:
+  selector:
+    app: thv-example1
+  ports:
+    - port: 80
+      targetPort: 80
