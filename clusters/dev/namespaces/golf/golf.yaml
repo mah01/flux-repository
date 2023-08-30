@@ -1,0 +1,34 @@
+# Example 1
+# Yaml file directly in clusters/dev/namespaces/golf
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: golfApp
+  namespace: golf
+  labels:
+    app: golfApp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: golfApp
+  template:
+    metadata:
+      labels:
+        app: golfApp
+    spec:
+      containers:
+        - name: golfApp
+          image: nginx:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: golfApp
+  namespace: golf
+spec:
+  selector:
+    app: golfApp
+  ports:
+    - port: 80
+      targetPort: 80
