@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: BIF
+  name: bif
   namespace: hotel
   labels:
     app: example1
