@@ -3,32 +3,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: golfApp
+  name: golfapp
   namespace: golf
   labels:
-    app: golfApp
+    app: golfapp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: golfApp
+      app: golfapp
   template:
     metadata:
       labels:
-        app: golfApp
+        app: golfapp
     spec:
       containers:
-        - name: golfApp
+        - name: golfapp
           image: nginx:latest
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: golfApp
+  name: golfapp
   namespace: golf
 spec:
   selector:
-    app: golfApp
+    app: golfapp
   ports:
     - port: 80
       targetPort: 80
