@@ -1,34 +1,32 @@
-# Example 1
-# Yaml file directly in clusters/dev/namespaces/golf
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: golfapp
-  namespace: golf
+  name: example
+  namespace: oscar
   labels:
-    app: golfapp
+    app: example
 spec:
-  replicas: 1
+  replicas: 10
   selector:
     matchLabels:
-      app: golfapp
+      app: example
   template:
     metadata:
       labels:
-        app: golfapp
+        app: example
     spec:
       containers:
-        - name: golfapp
+        - name: example
           image: nginx:latest
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: golfapp
-  namespace: golf
+  name: example
+  namespace: oscar
 spec:
   selector:
-    app: golfapp
+    app: example
   ports:
     - port: 80
       targetPort: 80

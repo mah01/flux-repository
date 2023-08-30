@@ -1,32 +1,4 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: myExample
-  namespace: oscar
-  labels:
-    app: myExample
-spec:
-  replicas: 10
-  selector:
-    matchLabels:
-      app: myExample
-  template:
-    metadata:
-      labels:
-        app: myExample
-    spec:
-      containers:
-        - name: myExample
-          image: nginx:latest
----
 apiVersion: v1
-kind: Service
+kind: Namespace
 metadata:
-  name: myExample
-  namespace: oscar
-spec:
-  selector:
-    app: myExample
-  ports:
-    - port: 80
-      targetPort: 80
+  name: oscar
